@@ -48,7 +48,7 @@ jobs:
       #  GOPATH: "${{ env.GOPATH }}"
         
     - name: tree1
-      run: dir
+      run: dir gui
 
     - name: Upload build artifacts1
       uses: actions/upload-artifact@v2
