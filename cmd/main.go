@@ -13,10 +13,10 @@ import (
 )
 
 import (
-	"github.com/hpxro7/wwiseutil/bnk"
-	"github.com/hpxro7/wwiseutil/pck"
-	"github.com/hpxro7/wwiseutil/util"
-	"github.com/hpxro7/wwiseutil/wwise"
+	"wwiseutil/bnk"
+	"wwiseutil/pck"
+	"wwiseutil/util"
+	"wwiseutil/wwise"
 )
 
 const shorthandSuffix = " (shorthand)"
@@ -172,7 +172,7 @@ func unpack(isSoundBank bool) {
 	}
 	total := int64(0)
 	for i, wem := range ctn.Wems() {
-		filename := util.CanonicalWemName(i, len(ctn.Wems()))
+		filename := fmt.Sprintf("%d", wem.Descriptor.WemId)
 		f, err := os.Create(filepath.Join(output, filename))
 		if err != nil {
 			log.Fatalf("Could not create wem file \"%s\": %s", filename, err)
