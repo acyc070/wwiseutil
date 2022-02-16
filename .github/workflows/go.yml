@@ -23,7 +23,7 @@ jobs:
     - name: tree11
       run: pwd
     - name: aaa
-      run: echo $GITHUB_WORKSPACE
+      run: echo "$GITHUB_WORKSPACE"
     - name: tree12
       run: |
         cd cmd
