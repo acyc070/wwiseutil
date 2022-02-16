@@ -24,9 +24,10 @@ jobs:
         cd cmd
         go build -v
       
-    - name: tree
-      run: tree ../
-      
+    - name: tree1
+      run: go build -v
+    - name: tree2
+      run: tree
     #- name: Upload build artifacts
       #uses: actions/upload-artifact@v2
     #  with:
