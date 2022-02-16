@@ -14,7 +14,7 @@ import (
 
 import (
 	"github.com/hpxro7/wwiseutil/bnk"
-	"github.com/hpxro7/wwiseutil"
+	"github.com/hpxro7/wwiseutil/pck"
 	"github.com/hpxro7/wwiseutil/util"
 	"github.com/hpxro7/wwiseutil/wwise"
 )
