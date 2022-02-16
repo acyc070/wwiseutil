@@ -46,7 +46,7 @@ type WemModel struct {
 }
 
 func NewTable() *WemTable {
-	table := New WemTable(nil)
+	table := new(WemTable)
 
 	table.VerticalHeader().Hide()
 	table.SetSelectionBehavior(widgets.QAbstractItemView__SelectRows)
@@ -185,7 +185,7 @@ func (t *WemTable) refreshRow(row int) {
 }
 
 func newModel() *WemModel {
-	model := NewWemModel(nil)
+	model := new(WemModel)
 	model.replacements = make(map[int]*replacementWemWrapper)
 
 	model.ConnectRowCount(model.rowCount)
