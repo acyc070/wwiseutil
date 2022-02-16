@@ -20,12 +20,15 @@ jobs:
 
     - name: Go Mod
       run: go mod init github.com/hpxro7/wwiseutil
-      
+    - name: tree11
+      run: pwd
+    - name: tree12
+      run: tree
     - name: BuildCLi
-      run: go build -v cmd
+      run: go build -v ./cmd/main.go
       
-    - name: BuildGUI
-      run: go build -v gui
+    #- name: BuildGUI
+    #  run: go build -v gui
       
     - name: tree1
       run: tree cmd
