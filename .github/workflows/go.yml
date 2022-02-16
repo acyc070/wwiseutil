@@ -25,7 +25,11 @@ jobs:
       #shell: bash
       
     - name: Go Mod
-      run: go mod init github.com/hpxro7/wwiseutil
+      run: |
+        go mod init github.com/hpxro7/wwiseutil
+        go get github.com/therecipe/qt/core
+        go get github.com/therecipe/qt/gui
+        go get github.com/therecipe/qt/widgets
     #- name: show GOPATH
     #  run: echo "${{ env.GOPATH }}"
       
