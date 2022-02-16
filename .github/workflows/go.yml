@@ -22,14 +22,15 @@ jobs:
       run: go mod init github.com/hpxro7/wwiseutil
     - name: tree11
       run: pwd
+    - name: aaa
+      run: set GITHUB_WORKSPACE
     - name: tree12
       run: |
         cd cmd
         go build -v
       env:
-        GOPATH: $GITHUB_WORKSPACE
-    - name: aaa
-      run: set GOPATH
+        GOPATH: "$GITHUB_WORKSPACE"
+
     #- name: BuildCLi
     #  run: go build -v
       
