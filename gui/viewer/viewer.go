@@ -65,7 +65,7 @@ type WwiseViewerWindow struct {
 }
 
 func New() *WwiseViewerWindow {
-	wv := NewWwiseViewerWindow(nil, 0)
+	wv := new(WwiseViewerWindow)
 	wv.SetWindowTitle(core.QCoreApplication_ApplicationName())
 
 	tb := wv.AddToolBar3("Main Toolbar")
@@ -370,23 +370,23 @@ func (wv *WwiseViewerWindow) showExportError(filename string, path string,
 	err error) {
 	msg := fmt.Sprintf("Could not write wem file %s to %s:\n%s.\n"+
 		"Aborting the export operation.", filename, path, err)
-	widgets.QMessageBox_Critical4(wv, errorTitle, msg, 0, 0)
+	widgets.QMessageBox_Critical(wv, errorTitle, msg, 0, 0)
 }
 
 func (wv *WwiseViewerWindow) showSaveError(path string, err error) {
 	msg := fmt.Sprintf("Could not save file %s:\n%s", path, err)
-	widgets.QMessageBox_Critical4(wv, errorTitle, msg, 0, 0)
+	widgets.QMessageBox_Critical(wv, errorTitle, msg, 0, 0)
 }
 
 func (wv *WwiseViewerWindow) showOpenError(path string, err error) {
 	msg := fmt.Sprintf("Could not open %s:\n%s", path, err)
-	widgets.QMessageBox_Critical4(wv, errorTitle, msg, 0, 0)
+	widgets.QMessageBox_Critical(wv, errorTitle, msg, 0, 0)
 }
 
 func (wv *WwiseViewerWindow) showLoopUpdateError(value string) {
 	msg := fmt.Sprintf("\"%s\" is not a valid looping value.\n "+
 		"The loop value must be an integer >= 2.", value)
-	widgets.QMessageBox_Critical4(wv, errorTitle, msg, 0, 0)
+	widgets.QMessageBox_Critical(wv, errorTitle, msg, 0, 0)
 }
 
 // Returns the index of the selected row, or -1 if a row isn't selected.
