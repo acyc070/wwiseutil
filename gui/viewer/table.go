@@ -46,7 +46,7 @@ type WemModel struct {
 }
 
 func NewTable() *WemTable {
-	table := NewWemTable(nil)
+	table := New WemTable(nil)
 
 	table.VerticalHeader().Hide()
 	table.SetSelectionBehavior(widgets.QAbstractItemView__SelectRows)
