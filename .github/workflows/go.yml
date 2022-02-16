@@ -18,17 +18,21 @@ jobs:
       with:
         go-version: 1.17
 
-    - name: Build
+    - name: Go Mod
       run: go mod init github.com/hpxro7/wwiseutil
       
-    - name: tree0
-      run: tree /?
+    - name: BuildCLi
+      run: go build -v cmd
+      
+    - name: BuildGUI
+      run: go build -v gui
       
     - name: tree1
-      run: tree /?
-      
+      run: tree cmd
     - name: tree2
-      run: go build -v cmd
+      run: tree gui
+    - name: tree
+      run: tree ..
     #- name: Upload build artifacts
       #uses: actions/upload-artifact@v2
     #  with:
