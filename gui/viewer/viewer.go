@@ -317,7 +317,7 @@ func (wv *WwiseViewerWindow) setLoopValues(b *bnk.File, wemIndex int) {
 func (wv *WwiseViewerWindow) exportCtn(dir string) {
 	total := int64(0)
 	ctn := wv.table.GetContainer()
-	for i, wem := range ctn.Wems() {
+	for _, wem := range ctn.Wems() {
 		filename := fmt.Sprintf("%d", wem.Descriptor.WemId);
 		f, err := os.Create(filepath.Join(dir, filename))
 		if err != nil {
