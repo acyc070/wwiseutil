@@ -23,21 +23,18 @@ jobs:
     - name: tree11
       run: pwd
     - name: tree12
-      run: tree
+      run: cd cmd
     - name: BuildCLi
-      run: go build -v ./cmd/main.go
+      run: go build -v
       
     #- name: BuildGUI
     #  run: go build -v gui
       
     - name: tree1
-      run: tree cmd
-    - name: tree2
-      run: tree gui
-    - name: tree
-      run: tree ..
-    #- name: Upload build artifacts
-      #uses: actions/upload-artifact@v2
-    #  with:
-    #    name: AssetStuio_net6.0
-    #    path: AssetStudioGUI\bin\Release\net6.0-windows
+      run: dir
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: All
+        path: ./
