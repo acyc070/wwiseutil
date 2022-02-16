@@ -171,7 +171,7 @@ func unpack(isSoundBank bool) {
 		log.Fatalln("Could not create output directory:", err)
 	}
 	total := int64(0)
-	for i, wem := range ctn.Wems() {
+	for _, wem := range ctn.Wems() {
 		filename := fmt.Sprintf("%d", wem.Descriptor.WemId)
 		f, err := os.Create(filepath.Join(output, filename))
 		if err != nil {
