@@ -22,12 +22,14 @@ jobs:
       run: go mod init github.com/hpxro7/wwiseutil
     - name: tree11
       run: pwd
-    - name: aaa
-      run: set GOPATH
     - name: tree12
       run: |
         cd cmd
         go build -v
+      env:
+        GOPATH: ./
+    - name: aaa
+      run: set GOPATH
     #- name: BuildCLi
     #  run: go build -v
       
