@@ -13,10 +13,10 @@ import (
 )
 
 import (
-	"../bnk"
-	"../pck"
-	"../util"
-	"../wwise"
+	"myapp/bnk"
+	"myapp/pck"
+	"myapp/util"
+	"myapp/wwise"
 )
 
 const shorthandSuffix = " (shorthand)"
