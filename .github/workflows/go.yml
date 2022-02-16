@@ -27,7 +27,7 @@ jobs:
         cd cmd
         go build -v
       env:
-        GOPATH: ./
+        GOPATH: $GITHUB_WORKSPACE
     - name: aaa
       run: set GOPATH
     #- name: BuildCLi
