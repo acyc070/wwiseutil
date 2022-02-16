@@ -19,10 +19,13 @@ jobs:
         go-version: 1.17
 
     - name: Build
-      run: go build -v ./cmd
+      run: |
+        cd cmd
+        go mod init
+        go build -v
       
     - name: tree
-      run: tree ./
+      run: tree ../
       
     #- name: Upload build artifacts
       #uses: actions/upload-artifact@v2
