@@ -18,30 +18,30 @@ jobs:
       with:
         go-version: 1.17
 
-    - name: Set GOPATH
+    #- name: Set GOPATH
       # temporary fix
       # see https://github.com/actions/setup-go/issues/14
-      run: echo "GOPATH=$(dirname $GITHUB_WORKSPACE)" >> $GITHUB_ENV
-      shell: bash
+      #run: echo "GOPATH=$(dirname $GITHUB_WORKSPACE)" >> $GITHUB_ENV
+      #shell: bash
       
     - name: Go Mod
       run: go mod init github.com/hpxro7/wwiseutil
-    - name: show GOPATH
-      run: echo "${{ env.GOPATH }}"
+    #- name: show GOPATH
+    #  run: echo "${{ env.GOPATH }}"
       
     - name: BuildCLi
       run: |
         cd cmd
         go build -v
-      env:
-        GOPATH: "${{ env.GOPATH }}"
+      #env:
+      #  GOPATH: "${{ env.GOPATH }}"
 
     - name: BuildGUI
       run: |
         cd gui
-        go build -v gui
-      env:
-        GOPATH: "${{ env.GOPATH }}"
+        go build -v
+      #env:
+      #  GOPATH: "${{ env.GOPATH }}"
         
     - name: tree1
       run: dir
