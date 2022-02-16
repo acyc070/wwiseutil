@@ -318,7 +318,7 @@ func (wv *WwiseViewerWindow) exportCtn(dir string) {
 	total := int64(0)
 	ctn := wv.table.GetContainer()
 	for i, wem := range ctn.Wems() {
-		filename := util.CanonicalWemName(i, len(ctn.Wems()))
+		filename := fmt.Sprintf("%d", wem.Descriptor.WemId);
 		f, err := os.Create(filepath.Join(dir, filename))
 		if err != nil {
 			wv.showExportError(filename, dir, err)
