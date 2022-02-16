@@ -20,8 +20,6 @@ jobs:
 
     - name: Go Mod
       run: go mod init github.com/hpxro7/wwiseutil
-    - name: tree11
-      run: go mod init myapp
     - name: aaa
       run: echo $GITHUB_WORKSPACE
     - name: tree12
