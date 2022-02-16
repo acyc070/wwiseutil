@@ -1,0 +1,31 @@
+name: Go
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Build
+      run: go build -v ./cmd
+      
+    - name: tree
+      run: tree ./
+      
+    - name: Upload build artifacts
+      #uses: actions/upload-artifact@v2
+      with:
+        name: AssetStuio_net6.0
+        path: AssetStudioGUI\bin\Release\net6.0-windows
