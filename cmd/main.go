@@ -13,8 +13,8 @@ import (
 )
 
 import (
-	"wwiseutil/bnk"
-	"wwiseutil/pck"
+	"wwiseutil/wwiseutil/bnk"
+	"pck"
 	"wwiseutil/util"
 	"wwiseutil/wwise"
 )
