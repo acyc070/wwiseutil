@@ -23,9 +23,11 @@ jobs:
     - name: tree11
       run: pwd
     - name: tree12
-      run: cd cmd
-    - name: BuildCLi
-      run: go build -v
+      run: |
+        cd cmd
+        go build -v
+    #- name: BuildCLi
+    #  run: go build -v
       
     #- name: BuildGUI
     #  run: go build -v gui
