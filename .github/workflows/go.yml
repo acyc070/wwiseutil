@@ -21,11 +21,13 @@ jobs:
     - name: Go Mod
       run: go mod init github.com/hpxro7/wwiseutil
     - name: aaa
-      run: echo $GITHUB_WORKSPACE
+      run: echo $HOME
     - name: tree12
       run: |
         cd cmd
         go build -v
+      env:
+        GOPATH: $HOME
 
     #- name: BuildCLi
     #  run: go build -v
