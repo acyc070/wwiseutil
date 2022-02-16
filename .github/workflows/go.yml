@@ -26,25 +26,32 @@ jobs:
       
     - name: Go Mod
       run: go mod init github.com/hpxro7/wwiseutil
-    - name: aaa
+    - name: show GOPATH
       run: echo "${{ env.GOPATH }}"
-    - name: tree12
+      
+    - name: BuildCLi
       run: |
         cd cmd
         go build -v
       env:
         GOPATH: "${{ env.GOPATH }}"
-    #- name: BuildCLi
-    #  run: go build -v
-      
-    #- name: BuildGUI
-    #  run: go build -v gui
-      
+
+    - name: BuildGUI
+      run: |
+        cd gui
+        go build -v gui
+      env:
+        GOPATH: "${{ env.GOPATH }}"
+        
     - name: tree1
       run: dir
 
-    - name: Upload build artifacts
+    - name: Upload build artifacts1
       uses: actions/upload-artifact@v2
       with:
-        name: All
-        path: ./
+        path: ./cmd/cmd.exe
+        
+    - name: Upload build artifacts2
+      uses: actions/upload-artifact@v2
+      with:
+        path: ./gui/gui.exe
