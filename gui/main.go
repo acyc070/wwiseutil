@@ -30,7 +30,7 @@ func main() {
 
 	window := viewer.New()
 
-	availableGeometry := widgets.QApplication_Desktop().AvailableGeometry(window)
+	availableGeometry := widgets.QApplication_Desktop().AvailableGeometry2(window)
 	window.Resize2(windowWidth, windowHeight)
 	// Move the window to the center of the screen.
 	window.Move2((availableGeometry.Width()-window.Width())/2,
