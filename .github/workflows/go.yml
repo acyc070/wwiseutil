@@ -28,8 +28,6 @@ jobs:
       run: |
         cd cmd
         go build -v
-      env:
-        GOPATH: "$GITHUB_WORKSPACE"
 
     #- name: BuildCLi
     #  run: go build -v
