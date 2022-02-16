@@ -275,7 +275,7 @@ func (m *WemModel) data(index *core.QModelIndex,
 	}
 
 	accessor := m.bindings[index.Column()].accessor
-	return core.NewQVariant14(accessor(index.Row()))
+	return core.NewQVariant12(accessor(index.Row()))
 }
 
 func (m *WemModel) headerData(section int,
@@ -284,5 +284,5 @@ func (m *WemModel) headerData(section int,
 		return core.NewQVariant()
 	}
 
-	return core.NewQVariant14(m.bindings[section].title)
+	return core.NewQVariant12(m.bindings[section].title)
 }
