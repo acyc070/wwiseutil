@@ -30,7 +30,10 @@ jobs:
         go get github.com/therecipe/qt/core
         go get github.com/therecipe/qt/gui
         go get github.com/therecipe/qt/widgets
-      
+    - name: xxx
+      run: tree "${{ env.GOPATH }}"
+    - name: xxx
+      run: dir "${{ env.GOPATH }}"
     - name: BuildCLi
       run: |
         cd cmd
