@@ -59,19 +59,13 @@ jobs:
         cd src/gui
         ${{ env.GOPATH }}/bin/qtdeploy build desktop
         
-    - name: tree0
-      run: dir src/cmd
-    - name: tree1
-      run: dir src/gui
-    - name: tree2
-      run: dir src/gui/deploy
 
     - name: Upload build artifacts1
       uses: actions/upload-artifact@v2
       with:
-        path: .src/cmd/cmd.exe
+        path: src/cmd/cmd.exe
         
     - name: Upload build artifacts2
       uses: actions/upload-artifact@v2
       with:
-        path: .src/gui/gui.exe
+        path: src/gui/deploy
