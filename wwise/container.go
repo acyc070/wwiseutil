@@ -9,7 +9,7 @@ import (
 )
 
 import (
-	"github.com/hpxro7/wwiseutil/util"
+	"util"
 )
 
 type Container interface {

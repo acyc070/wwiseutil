@@ -10,8 +10,8 @@ import (
 )
 
 import (
-	"github.com/hpxro7/wwiseutil/util"
-	"github.com/hpxro7/wwiseutil/wwise"
+	"util"
+	"wwise"
 )
 
 const (

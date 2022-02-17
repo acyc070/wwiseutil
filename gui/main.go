@@ -6,7 +6,7 @@ import (
 )
 
 import (
-	"github.com/hpxro7/wwiseutil/gui/viewer"
+	"gui/viewer"
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/widgets"
 )

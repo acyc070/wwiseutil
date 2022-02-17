@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-import "github.com/hpxro7/wwiseutil/util"
+import "util"
 
 const (
 	// The number of bytes to add or subtract from when testing replacing larger

@@ -5,10 +5,10 @@ import (
 )
 
 import (
-	"github.com/hpxro7/wwiseutil/bnk"
-	"github.com/hpxro7/wwiseutil/pck"
-	"github.com/hpxro7/wwiseutil/util"
-	"github.com/hpxro7/wwiseutil/wwise"
+	"bnk"
+	"pck"
+	"util"
+	"wwise"
 	"github.com/therecipe/qt/core"
 	"github.com/therecipe/qt/widgets"
 )
