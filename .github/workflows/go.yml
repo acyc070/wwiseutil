@@ -24,24 +24,27 @@ jobs:
       with:
         go-version: 1.17
       
+    - uses: actions/cache@v2
+      id: cache-qt-bindings-win
+      with:
+        path: ${{ github.workspace }}/src/github.com/therecipe
+        key: cache-qt-bindings-win
+
     - name: Go Mod
+      if: ${{ steps.cache-qt-bindings-win.outputs.cache-hit != 'true' }}
       run: |
         go get github.com/therecipe/qt/core
         go get github.com/therecipe/qt/gui
         go get github.com/therecipe/qt/widgets
-
+    
     - name: BuildCLi
       run: |
         cd src/cmd
         go build -v
 
     - name: Get Qt binding for Go
+      if: ${{ steps.cache-qt-bindings-win.outputs.cache-hit != 'true' }}
       run: go get -v github.com/therecipe/qt/cmd/...
-    - uses: actions/cache@v2
-      id: cache-qt-bindings-win
-      with:
-        path: ${{ github.workspace }}/src/github.com/therecipe
-        key: cache-qt-bindings-win
     - name: Generate Qt bindings
       if: ${{ steps.cache-qt-bindings-win.outputs.cache-hit != 'true' }}
       run: ${{ env.GOPATH }}/bin/qtsetup -test=false
