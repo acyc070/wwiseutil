@@ -11,30 +11,37 @@ jobs:
   build:
     runs-on: windows-latest
     env:
+      # 禁用GO Module, 并设置GOPATH环境变量
       GO111MODULE: 'off'
       GOPATH: ${{ github.workspace }}
     steps:
+
+    # checkout, 项目存入src目录因为go编译需要的，GOPATH环境变量自动加入src目录名
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
         path: ./src
-      
+
+    # 安装GO环境
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
         go-version: 1.17
-      
+    
+    # 缓存qt相关资源编译内容，很费时间的编译缓存一下不用下次编译了
     - uses: actions/cache@v2
       id: cache-qt-bindings-win
       with:
         path: ${{ github.workspace }}/src/github.com/therecipe
         key: cache-qt-bindings-win
+    # 缓存qt binding相关的工具
     - uses: actions/cache@v2
       id: cache-qt-bindings-exe
       with:
         path: ${{ github.workspace }}/bin
         key: cache-qt-bindings-exe
 
+    # 获取依赖库
     - name: Go Mod
       if: ${{ steps.cache-qt-bindings-win.outputs.cache-hit != 'true' }}
       run: |
@@ -42,18 +49,23 @@ jobs:
         go get github.com/therecipe/qt/gui
         go get github.com/therecipe/qt/widgets
     
+    # 编译命令行版本
     - name: BuildCLi
       run: |
         cd src/cmd
         go build -v
 
+    # 获取和编译工具相关
     - name: Get Qt binding for Go
       if: ${{ steps.cache-qt-bindings-exe.outputs.cache-hit != 'true' }}
       run: go get -v github.com/therecipe/qt/cmd/...
+    
+    # qt相关的库的编译
     - name: Generate Qt bindings
       if: ${{ steps.cache-qt-bindings-win.outputs.cache-hit != 'true' }}
       run: ${{ env.GOPATH }}/bin/qtsetup -test=false
 
+    # 编译GUI版
     - name: BuildGUI
       run: |
         cd src/gui
