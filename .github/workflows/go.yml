@@ -39,12 +39,12 @@ jobs:
       run: dir "${{ env.GOPATH }}"
     - name: BuildCLi
       run: |
-        cd cmd
+        cd src/cmd
         go build -v
 
     - name: BuildGUI
       run: |
-        cd gui
+        cd src/gui
         go build -v
         
     - name: tree1
