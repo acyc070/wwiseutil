@@ -45,23 +45,19 @@ jobs:
     - name: Generate Qt bindings
       if: ${{ steps.cache-qt-bindings-win.outputs.cache-hit != 'true' }}
       run: ${{ env.GOPATH }}/bin/qtsetup -test=false
-    - name: xxx
-      run: tree "${{ env.GOPATH }}"
-      shell: pwsh
-    # - name: Get dependencies
-    #   run: |
-    #     cd src/gui
-    #     ${{ env.GOPATH }}/bin/qtmoc
+
     - name: BuildGUI
       run: |
         cd src/gui
         ${{ env.GOPATH }}/bin/qtdeploy build desktop
         
+    - name: tree0
+      run: dir src/cmd
     - name: tree1
       run: dir src/gui
+    - name: tree2
+      run: dir src/gui/deploy
 
-    - name: tree3
-      run: dir 
     - name: Upload build artifacts1
       uses: actions/upload-artifact@v2
       with:
