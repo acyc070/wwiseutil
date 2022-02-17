@@ -34,8 +34,10 @@ jobs:
         go get github.com/therecipe/qt/widgets
     - name: Get Qt binding for Go
       run: go get -v github.com/therecipe/qt/cmd/...
+    - name: vvvvvz
+      run: dir "${{ env.GOPATH }}/bin"
     - name: Generate Qt bindings
-      run: $(go env GOPATH)/bin/qtsetup -test=false
+      run: ${{ env.GOPATH }}/bin/qtsetup -test=false
     - name: xxx
       run: tree "${{ env.GOPATH }}"
       shell: pwsh
