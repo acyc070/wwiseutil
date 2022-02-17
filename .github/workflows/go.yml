@@ -30,10 +30,6 @@ jobs:
         go get github.com/therecipe/qt/gui
         go get github.com/therecipe/qt/widgets
 
-    - name: xxx
-      run: dir "${{ env.GOPATH }}"
-    - name: tree2
-      run: dir
     - name: BuildCLi
       run: |
         cd src/cmd
@@ -52,14 +48,14 @@ jobs:
     - name: xxx
       run: tree "${{ env.GOPATH }}"
       shell: pwsh
-    - name: Get dependencies
-      run: |
-        cd src/gui
-        ${{ env.GOPATH }}/bin/qtmoc
+    # - name: Get dependencies
+    #   run: |
+    #     cd src/gui
+    #     ${{ env.GOPATH }}/bin/qtmoc
     - name: BuildGUI
       run: |
         cd src/gui
-        ${{ env.GOPATH }}/bin/qtdeploy build windows_64_static
+        ${{ env.GOPATH }}/bin/qtdeploy build desktop
         
     - name: tree1
       run: dir src/gui
