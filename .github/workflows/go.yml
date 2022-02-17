@@ -69,7 +69,7 @@ jobs:
     - name: BuildGUI
       run: |
         cd src/gui
-        ${{ env.GOPATH }}/bin/qtdeploy build desktop
+        ${{ env.GOPATH }}/bin/qtdeploy build windows
         
 
     - name: Upload build artifacts1
