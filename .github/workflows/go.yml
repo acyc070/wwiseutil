@@ -26,7 +26,7 @@ jobs:
       
     - name: Go Mod
       run: |
-        go mod init wwiseutil
+        go mod init
         go get github.com/hpxro7/wwiseutil
         go get github.com/therecipe/qt/core
         go get github.com/therecipe/qt/gui
