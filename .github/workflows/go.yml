@@ -32,24 +32,35 @@ jobs:
         go get github.com/therecipe/qt/core
         go get github.com/therecipe/qt/gui
         go get github.com/therecipe/qt/widgets
+    - name: Get Qt binding for Go
+      run: go get -v github.com/therecipe/qt/cmd/...
+    - name: Generate Qt bindings
+      run: $(go env GOPATH)/bin/qtsetup -test=false
     - name: xxx
       run: tree "${{ env.GOPATH }}"
       shell: pwsh
     - name: xxx
       run: dir "${{ env.GOPATH }}"
+    - name: tree2
+      run: dir
     - name: BuildCLi
       run: |
         cd src/cmd
         go build -v
-
+    - name: Get dependencies
+      run: |
+        cd src/gui
+        $(go env GOPATH)/bin/qtmoc
     - name: BuildGUI
       run: |
         cd src/gui
-        go build -v
+        $(go env GOPATH)/bin/qtdeploy build windows_64_static
         
     - name: tree1
-      run: dir gui
+      run: dir src/gui
 
+    - name: tree3
+      run: dir 
     - name: Upload build artifacts1
       uses: actions/upload-artifact@v2
       with:
