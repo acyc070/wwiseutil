@@ -66,10 +66,10 @@ jobs:
       run: ${{ env.GOPATH }}/bin/qtsetup -test=false
 
     # 编译GUI版
-    - name: BuildGUI
-      run: |
-        cd src/gui
-        ${{ env.GOPATH }}/bin/qtdeploy build windows
+    # - name: BuildGUI
+    #   run: |
+    #     cd src/gui
+    #     ${{ env.GOPATH }}/bin/qtdeploy build windows
         
 
     - name: Upload build artifacts1
@@ -77,7 +77,7 @@ jobs:
       with:
         path: src/cmd/cmd.exe
         
-    - name: Upload build artifacts2
-      uses: actions/upload-artifact@v2
-      with:
-        path: src/gui/deploy
+    # - name: Upload build artifacts2
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     path: src/gui/deploy
