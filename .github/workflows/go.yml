@@ -23,24 +23,13 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.17
-    
-    - name: VVVVV
-      run: echo "${{ env.GOPATH }}"
       
     - name: Go Mod
       run: |
         go get github.com/therecipe/qt/core
         go get github.com/therecipe/qt/gui
         go get github.com/therecipe/qt/widgets
-    - name: Get Qt binding for Go
-      run: go get -v github.com/therecipe/qt/cmd/...
-    - name: vvvvvz
-      run: dir "${{ env.GOPATH }}/bin"
-    - name: Generate Qt bindings
-      run: ${{ env.GOPATH }}/bin/qtsetup -test=false
-    - name: xxx
-      run: tree "${{ env.GOPATH }}"
-      shell: pwsh
+
     - name: xxx
       run: dir "${{ env.GOPATH }}"
     - name: tree2
@@ -49,14 +38,22 @@ jobs:
       run: |
         cd src/cmd
         go build -v
+
+    - name: Get Qt binding for Go
+      run: go get -v github.com/therecipe/qt/cmd/...
+    - name: Generate Qt bindings
+      run: ${{ env.GOPATH }}/bin/qtsetup -test=false
+    - name: xxx
+      run: tree "${{ env.GOPATH }}"
+      shell: pwsh
     - name: Get dependencies
       run: |
         cd src/gui
-        $(go env GOPATH)/bin/qtmoc
+        ${{ env.GOPATH }}/bin/qtmoc
     - name: BuildGUI
       run: |
         cd src/gui
-        $(go env GOPATH)/bin/qtdeploy build windows_64_static
+        ${{ env.GOPATH }}/bin/qtdeploy build windows_64_static
         
     - name: tree1
       run: dir src/gui
@@ -66,9 +63,9 @@ jobs:
     - name: Upload build artifacts1
       uses: actions/upload-artifact@v2
       with:
-        path: ./cmd/cmd.exe
+        path: .src/cmd/cmd.exe
         
     - name: Upload build artifacts2
       uses: actions/upload-artifact@v2
       with:
-        path: ./gui/gui.exe
+        path: .src/gui/gui.exe
