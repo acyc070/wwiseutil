@@ -45,6 +45,7 @@ jobs:
       id: cache-qt-bindings-win
       with:
         path: ${{ github.workspace }}/src/github.com/therecipe
+        key: cache-qt-bindings-win
     - name: Generate Qt bindings
       if: ${{ steps.cache-qt-bindings-win.outputs.cache-hit != 'true' }}
       run: ${{ env.GOPATH }}/bin/qtsetup -test=false
